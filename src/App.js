@@ -1,15 +1,17 @@
-import React from "react";
-import Cards from "./Components/Cards";
 import { data } from "./data";
-
+import Card from "./Components/Card";
 export default function App() {
-  const dataShow = data.map((el) => {
-    return <Cards key={el.id} data={el.title} desc={el.desc} />;
+  const dataShow = data.map((item) => {
+    return (
+      <Card
+        img={item.img}
+        title={item.title}
+        desc={item.desc}
+        review={item.review}
+        price={item.price}
+      />
+    );
   });
-  return (
-    <div className="contianer">
-      <h1>React App</h1>
-      {dataShow}
-    </div>
-  );
+
+  return <div>{dataShow}</div>;
 }
